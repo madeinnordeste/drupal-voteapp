@@ -10,9 +10,12 @@ use Drupal\user\Entity\User;
 class JwtService
 {
 
-  protected $secret = 'dfyuiofsdyuidfjhk';
+  protected $secret;
 
-
+  public function __construct()
+  {
+    $this->secret = getenv('JWT_KEY');
+  }
 
   public function generateToken(User $user)
   {

@@ -12,8 +12,14 @@
 
       username: user
       password: user
+---
+## Menu
+
+
+![Menu](.misc/menu.png "Menu")
 
 ---
+
 ## Classes
 
 ```mermaid
@@ -31,11 +37,10 @@
       -bool staus
       +getAnswersCount()
       +getAnswersIds()
-      +getAnswers()
+      +getAnswers()KK
       +getStatistics()
       +clearStatistics()
-      +getAnswerStatistics(int $answerId)
-      +getVotesCount()
+      +getAnswerStatistics(int $answerId)K
     }
     class Answer{
       -int question
