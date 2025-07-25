@@ -120,6 +120,8 @@ Recupera token de acesso.
 
 Recupera dados do perfil do usuário.
 
+**Requer Autenticação**
+
 *Endpoint:*
 
     GET /api/profile
@@ -143,6 +145,8 @@ Recupera dados do perfil do usuário.
 #### Question - Listar
 
 Lista as Questions ativas.
+
+**Requer Autenticação**
 
 *Endpoint:*
 
@@ -197,6 +201,8 @@ Lista as Questions ativas.
 
 Exibe informações detalhadas da pergunta.
 
+**Requer Autenticação**
+
 *Endpoint:*
 
     GET /api/question/<identifier>
@@ -244,6 +250,8 @@ Exibe informações detalhadas da pergunta.
 #### Question - Votar
 
 Permite o registro de voto jpara pergunta.
+
+**Requer Autenticação**
 
 *Endpoint:*
 
