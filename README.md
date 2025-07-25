@@ -287,7 +287,6 @@ Permite o registro de voto jpara pergunta.
           "statistics": {
               "date": "2025-07-25 17:17:59",
               "total": 246,
-              "votes": {
                   "2": {
                       "votes": 246,
                       "percent": 100,

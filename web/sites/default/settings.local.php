@@ -1,6 +1,6 @@
 <?php
 
-// Daabase
+// Database
 $databases['default']['default'] = array(
   'database' => 'drupal11',
   'username' => 'drupal11',

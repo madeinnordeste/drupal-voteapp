@@ -37,6 +37,19 @@ class QuestionForm extends ContentEntityForm
 
     if (!$question->isNew()) {
 
+      $identifier = $question->get('identifier')->value;
+      $url = Url::fromRoute(
+        'vote.form',
+        ['question' => $identifier],
+        ['absolute' => TRUE]
+      )->toString();
+
+      $form['public_url'] = [
+        '#type' => 'markup',
+        '#markup' => '<a href="' . $url . '" target="_blank">' . $url . '</a>',
+        '#weight' => -5,
+      ];
+
       $form['related_answers'] = [
         '#type' => 'details',
         '#title' => $this->t('Related Answers'),
@@ -81,8 +94,6 @@ class QuestionForm extends ContentEntityForm
     if ($status === SAVED_NEW) {
       $form_state->setRedirect('entity.question.edit_form', ['question' => $entity->id()]);
     }
-
-    //$form_state->setRedirectUrl(Url::fromRoute('entity.question.collection'));
 
     return $status;
   }
