@@ -1,6 +1,10 @@
-voteapp.question_list:
+voteapp.admin_link:
   title: "Questions"
   description: "Manage custom questions"
   route_name: entity.question.collection
-  parent: system.admin_content
-  weight: 10
+  parent: system.admin
+  weight: -100
+  options:
+    attributes:
+      class:
+        - "toolbar-icon toolbar-icon-system-admin-reports"
