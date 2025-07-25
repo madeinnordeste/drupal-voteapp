@@ -1,5 +1,6 @@
 <?php
 
+// Daabase
 $databases['default']['default'] = array(
   'database' => 'drupal11',
   'username' => 'drupal11',
@@ -13,23 +14,15 @@ $databases['default']['default'] = array(
   'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
 );
 
-$settings['config_sync_directory'] = '../config/_default';
-
-
 // Redis
 $settings['redis.connection']['interface'] = 'PhpRedis';
 $settings['redis.connection']['host'] = 'redis';
-
 $settings['cache']['default'] = 'cache.backend.redis';
-
 $settings['cache']['bins']['bootstrap'] = 'cache.backend.redis';
 $settings['cache']['bins']['discovery'] = 'cache.backend.redis';
 $settings['cache']['bins']['config'] = 'cache.backend.redis';
-
 $settings['cache']['bins']['*'] = 'cache.backend.redis';
-
-// Fallback cache de render
-$settings['cache']['bins']['render'] = 'cache.backend.database';
+$settings['cache']['bins']['render'] = 'cache.backend.database'; // failback
 
 // Bugsnag
 $settings['bugsnag_api_key'] = getenv('BUGSNAG_API_KEY') ?? 'YOU_BUGSNAG_API_KEY';
