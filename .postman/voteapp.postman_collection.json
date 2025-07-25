@@ -9,6 +9,18 @@
 	"item": [
 		{
 			"name": "healthCheck",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -23,6 +35,23 @@
 		},
 		{
 			"name": "API/login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.json(); ",
+							"let token = response.data.token;",
+							"if(token){",
+							"pm.environment.set(\"token\", token);",
+							"}",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -58,13 +87,13 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer{{token}}",
+						"value": "Bearer {{token}}",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin\"\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -100,7 +129,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin\"\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -108,7 +137,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{baseURL}}/api/question?page=2&limit=10",
+					"raw": "{{baseURL}}/api/question?page=2&limit=",
 					"host": [
 						"{{baseURL}}"
 					],
@@ -123,7 +152,7 @@
 						},
 						{
 							"key": "limit",
-							"value": "10"
+							"value": ""
 						}
 					]
 				}
@@ -146,7 +175,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin\"\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -154,14 +183,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{baseURL}}/api/question/5aed7e4eaa2fd8cc",
+					"raw": "{{baseURL}}/api/question/01a38bdb421d5624",
 					"host": [
 						"{{baseURL}}"
 					],
 					"path": [
 						"api",
 						"question",
-						"5aed7e4eaa2fd8cc"
+						"01a38bdb421d5624"
 					]
 				}
 			},
@@ -188,14 +217,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{baseURL}}/api/question/5aed7e4eaa2fd8ccA",
+					"raw": "{{baseURL}}/api/question/01a38bdb421d5624",
 					"host": [
 						"{{baseURL}}"
 					],
 					"path": [
 						"api",
 						"question",
-						"5aed7e4eaa2fd8ccA"
+						"01a38bdb421d5624"
 					]
 				}
 			},
