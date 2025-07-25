@@ -1,0 +1,28 @@
+services:
+  bugsnag.client:
+    class: Bugsnag\Client
+    factory: ['Bugsnag\Client', "make"]
+    arguments: [""]
+  bugsnag.exception_subscriber:
+    class: Drupal\voteapp\EventSubscriber\BugsnagExceptionSubscriber
+    arguments: ["@bugsnag.client"]
+    tags:
+      - { name: event_subscriber }
+  voteapp.vote_service:
+    class: 'Drupal\voteapp\Service\VoteService'
+    arguments:
+      - "@entity_type.manager"
+  voteapp.question_service:
+    class: 'Drupal\voteapp\Service\QuestionService'
+    arguments:
+      - "@entity_type.manager"
+  voteapp.jwt_service:
+    class: Drupal\voteapp\Service\JwtService
+  voteapp.api.exception_subscriber:
+    class: Drupal\voteapp\EventSubscriber\ExceptionToJsonSubscriber
+    tags:
+      - { name: event_subscriber }
+  voteapp.identifier_param_converter:
+    class: Drupal\voteapp\ParamConverter\IdentifierParamConverter
+    tags:
+      - { name: paramconverter }

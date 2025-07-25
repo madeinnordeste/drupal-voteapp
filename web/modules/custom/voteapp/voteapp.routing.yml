@@ -1,0 +1,132 @@
+entity.question.settings:
+  path: "/admin/structure/question/settings"
+  defaults:
+    _form: '\Drupal\Core\Entity\EntitySettingsForm'
+    _title: "Question settings"
+  requirements:
+    _permission: "administer question entities"
+
+entity.question.collection:
+  path: "/admin/content/question"
+  defaults:
+    _entity_list: "question"
+    _title: "Questions"
+  requirements:
+    _permission: "administer question entities"
+  options:
+    _admin_route: TRUE
+
+entity.question.add_form:
+  path: "/admin/content/question/add"
+  defaults:
+    _entity_form: "question.add"
+    _title: "Add Question"
+  requirements:
+    _permission: "administer question entities"
+  options:
+    _admin_route: TRUE
+
+entity.answer.collection:
+  path: "/admin/content/answer"
+  defaults:
+    _entity_list: "answer"
+    _title: "Answer"
+  requirements:
+    _permission: "administer question entities"
+  options:
+    _admin_route: TRUE
+
+entity.answer.add_form:
+  path: "/admin/content/answer/add"
+  defaults:
+    _entity_form: "answer.add"
+    _title: "Add Answer"
+  requirements:
+    _permission: "administer question entities"
+  options:
+    _admin_route: TRUE
+
+entity.answer.edit_form:
+  path: "/admin/content/answer/{answer}/edit"
+  defaults:
+    _entity_form: "answer.edit"
+    _title: "Edit Answer"
+  requirements:
+    _permission: "administer question entities"
+  options:
+    _admin_route: TRUE
+
+entity.answer.delete_form:
+  path: "/admin/content/answer/{answer}/delete"
+  defaults:
+    _entity_form: "answer.delete"
+    _title: "Delete Answer"
+  requirements:
+    _permission: "administer question entities"
+  options:
+    _admin_route: TRUE
+
+vote.form:
+  path: "/question/{question}"
+  defaults:
+    _form: '\Drupal\voteapp\Form\VoteForm'
+    _title: "Question"
+  requirements:
+    _user_is_logged_in: "TRUE"
+  options:
+    parameters:
+      question:
+        type: question_by_identifier
+
+voteapp.api.login:
+  path: "/api/login"
+  defaults:
+    _controller: '\Drupal\voteapp\Controller\AuthController::login'
+    _format: "json"
+  methods: [POST]
+  requirements:
+    _access: "TRUE"
+
+voteapp.api.profile:
+  path: "/api/profile"
+  defaults:
+    _controller: '\Drupal\voteapp\Controller\AuthController::profile'
+    _format: "json"
+  methods: [GET]
+  requirements:
+    _access: "TRUE"
+
+voteapp.api.question:
+  path: "/api/question"
+  defaults:
+    _controller: '\Drupal\voteapp\Controller\QuestionController::list'
+    _format: "json"
+  methods: [GET]
+  requirements:
+    _access: "TRUE"
+
+voteapp.api.question.show:
+  path: "/api/question/{question}"
+  defaults:
+    _controller: '\Drupal\voteapp\Controller\QuestionController::show'
+    _format: "json"
+  methods: [GET]
+  requirements:
+    _access: "TRUE"
+  options:
+    parameters:
+      question:
+        type: question_by_identifier
+
+voteapp.api.question.vote:
+  path: "/api/question/{question}"
+  defaults:
+    _controller: '\Drupal\voteapp\Controller\QuestionController::vote'
+    _format: "json"
+  methods: [POST]
+  requirements:
+    _access: "TRUE"
+  options:
+    parameters:
+      question:
+        type: question_by_identifier

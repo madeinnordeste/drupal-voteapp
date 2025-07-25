@@ -1,0 +1,53 @@
+<?php
+
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_entity_predelete().
+ */
+function voteapp_entity_predelete(EntityInterface $entity)
+{
+
+  //TODO::  move to event subscribers
+
+  if ($entity->getEntityTypeId() === 'answer') {
+
+    $votes = \Drupal::entityTypeManager()
+      ->getStorage('vote')
+      ->loadByProperties(['answer' => $entity->id()]);
+
+    foreach ($votes as $vote) {
+      $vote->delete();
+    }
+
+
+    $question = $entity->get('question')->entity;
+    if ($question) {
+      $question->clearStatistics();
+    }
+  }
+
+
+  if ($entity->getEntityTypeId() === 'vote') {
+    $question = $entity->get('question')->entity;
+    if ($question) {
+      $question->clearStatistics();
+    }
+  }
+}
+
+
+/**
+ * Implements hook_entity_insert().
+ */
+function voteapp_entity_insert(EntityInterface $entity)
+{
+  //TODO::  move to event subscribers
+
+  if ($entity->getEntityTypeId() === 'vote') {
+    $question = $entity->get('question')->entity;
+    if ($question) {
+      $question->clearStatistics();
+    }
+  }
+}

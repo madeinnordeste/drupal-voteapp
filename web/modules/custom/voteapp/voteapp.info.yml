@@ -1,0 +1,10 @@
+name: "Vote App"
+type: module
+description: "Vote app module."
+core_version_requirement: ^11
+package: Custom
+dependencies:
+  - field
+  - user
+  - rest
+  - serialization

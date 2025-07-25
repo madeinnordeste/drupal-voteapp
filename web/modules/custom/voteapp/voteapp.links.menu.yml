@@ -1,0 +1,6 @@
+voteapp.question_list:
+  title: "Questions"
+  description: "Manage custom questions"
+  route_name: entity.question.collection
+  parent: system.admin_content
+  weight: 10

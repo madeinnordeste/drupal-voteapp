@@ -1,0 +1,5 @@
+voteapp.question_tab:
+  route_name: entity.question.collection
+  title: "Questions"
+  base_route: system.admin_content
+  weight: 20
