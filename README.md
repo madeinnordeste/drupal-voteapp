@@ -304,7 +304,7 @@ Permite o registro de voto jpara pergunta.
 
 Teste:
 
-    ab -n 1000 -c 1000 http://vote-app.lndo.site/question
+    ab -n 1000 -c 1000 -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIxIiwibmFtZSI6ImFkbWluIiwiZXhwIjoxNzUzNDkwMTQ4fQ.15mM0_j9dONonf4paLJ-GodJehnNryW8Bd9AALx-50M" http://vote-app.lndo.site/api/question
 
 Resultado:
 
@@ -312,38 +312,38 @@ Resultado:
     Server Hostname:        vote-app.lndo.site
     Server Port:            80
 
-    Document Path:          /question
-    Document Length:        13447 bytes
+    Document Path:          /api/question
+    Document Length:        517 bytes
 
     Concurrency Level:      1000
-    Time taken for tests:   23.915 seconds
+    Time taken for tests:   32.922 seconds
     Complete requests:      1000
     Failed requests:        0
-    Non-2xx responses:      1000
-    Total transferred:      13933000 bytes
-    HTML transferred:       13447000 bytes
-    Requests per second:    41.81 [#/sec] (mean)
-    Time per request:       23914.865 [ms] (mean)
-    Time per request:       23.915 [ms] (mean, across all concurrent requests)
-    Transfer rate:          568.95 [Kbytes/sec] received
+    Total transferred:      1010000 bytes
+    HTML transferred:       517000 bytes
+    Requests per second:    30.37 [#/sec] (mean)
+    Time per request:       32922.338 [ms] (mean)
+    Time per request:       32.922 [ms] (mean, across all concurrent requests)
+    Transfer rate:          29.96 [Kbytes/sec] received
 
     Connection Times (ms)
                   min  mean[+/-sd] median   max
-    Connect:        0   59   6.7     61      67
-    Processing:   135 8713 7079.4   6171   23752
-    Waiting:       77 8712 7080.0   6171   23751
-    Total:        190 8772 7081.4   6237   23818
+    Connect:        0   47   9.5     46      64
+    Processing:   208 15358 9837.3  14969   32687
+    Waiting:      144 15358 9837.4  14967   32685
+    Total:        208 15405 9833.9  15002   32720
 
     Percentage of the requests served within a certain time (ms)
-      50%   6237
-      66%  11482
-      75%  14840
-      80%  16392
-      90%  19880
-      95%  21509
-      98%  22831
-      99%  22986
-    100%  23818 (longest request)
+      50%  15002
+      66%  20964
+      75%  24219
+      80%  25471
+      90%  29520
+      95%  30660
+      98%  31995
+      99%  32069
+    100%  32720 (longest request)
+
 ---
 
 ## Tecnologias
