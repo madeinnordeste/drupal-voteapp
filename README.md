@@ -302,6 +302,9 @@ Permite o registro de voto jpara pergunta.
       }
     }
 
+
+**statistics** será exibido de acordo com as configurações da pergunta.
+
 ---
 
 ## Apache Benchmark
