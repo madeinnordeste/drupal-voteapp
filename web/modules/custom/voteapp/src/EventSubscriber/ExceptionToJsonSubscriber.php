@@ -18,9 +18,9 @@ class ExceptionToJsonSubscriber implements EventSubscriberInterface
   {
 
     $request = $event->getRequest();
-    $route_name = (string)$request->attributes->get('_route');
+    $route_path = $request->getPathInfo();
 
-    if (strpos($route_name, 'voteapp.api.') !== 0) {
+    if (strpos($route_path, '/api/') !== 0) {
       return;
     }
 
